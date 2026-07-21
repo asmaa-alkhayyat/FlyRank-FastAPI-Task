@@ -58,4 +58,4 @@ content-type: application/json
 
 FastAPI automatically generates interactive API documentation at `/docs`, where every endpoint can be tested directly from the browser.
 
-![Swagger UI](screenshots/Full_CRUD.png.png)
+![Swagger UI](Swagger_Screenshots/Full_CRUD.png)
