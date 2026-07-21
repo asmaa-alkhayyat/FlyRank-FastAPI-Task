@@ -7,14 +7,21 @@ app = FastAPI()
 
 # Tasks for stage 2
 tasks = [
-    {"id": 1, "title": "Pen", "done": True},
-    {"id": 2, "title": "Book", "done": False},
-    {"id": 3, "title": "Eraser", "done": True}
+    {"id": 1, "title": "Buy Pen", "done": True},
+    {"id": 2, "title": "Buy Book", "done": False},
+    {"id": 3, "title": "Buy Eraser", "done": True}
 ]
+
 
 # Class for stage 3
 class TaskCreate(BaseModel):
     title: Optional[str] = None
+
+# Class for stage 4
+class TaskUpdate(BaseModel):
+    title: Optional[str] = None
+    done: Optional[bool] = None
+
 
 @app.get("/")
 async def get():
@@ -49,3 +56,33 @@ async def create_task(task: TaskCreate):
     new_task = {"id": new_id, "title": task.title, "done": False}
     tasks.append(new_task)
     return new_task
+
+
+# Stage 4 (PUT)
+@app.put("/tasks/{id}")
+async def update_task(task: TaskUpdate, id: int):
+    if task.title is None and task.done is None:
+        return JSONResponse(status_code=400, content={"error": "must provide title or done"})
+    
+    for t in tasks:
+        if t["id"] == id:
+            if task.title is not None:
+                t["title"] = task.title
+            if task.done is not None:
+                t["done"] = task.done
+            return t
+    
+    return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
+
+  
+
+# Stage 4 (DELETE)
+@app.delete("/tasks/{id}", status_code=204)
+async def delete_task(id: int):
+    for t in tasks:
+        if t["id"] == id:
+            tasks.remove(t)
+            return
+        
+    return JSONResponse(status_code=404, content={"error": f"Task {id} not found"})
+  
