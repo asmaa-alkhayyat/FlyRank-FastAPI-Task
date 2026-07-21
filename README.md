@@ -1,4 +1,4 @@
-# FlyRank-FastAPI-Task
+# FlyRank FastAPI Task
 
 A simple CRUD API for managing a to-do list, built with **Python** and **FastAPI**. This project was built as part of the FlyRank AI Internship (Backend AI Engineering track).
 
@@ -16,7 +16,6 @@ The API supports creating, reading, updating, and deleting tasks, and includes i
    ```
 3. Activate the environment:
    - Windows: `.\env\Scripts\Activate.ps1`
-   - Mac/Linux: `source env/bin/activate`
 4. Install the dependencies:
    ```
    pip install fastapi uvicorn
@@ -58,4 +57,4 @@ content-type: application/json
 
 FastAPI automatically generates interactive API documentation at `/docs`, where every endpoint can be tested directly from the browser.
 
-![Swagger UI](screenshots/Full_CRUD.png.png)
+![Swagger UI](Swagger_Screenshots/Full_CRUD.png)
