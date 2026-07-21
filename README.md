@@ -16,6 +16,7 @@ The API supports creating, reading, updating, and deleting tasks, and includes i
    ```
 3. Activate the environment:
    - Windows: `.\env\Scripts\Activate.ps1`
+     
 4. Install the dependencies:
    ```
    pip install fastapi uvicorn
