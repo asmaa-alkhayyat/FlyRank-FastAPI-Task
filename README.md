@@ -1,4 +1,4 @@
-# FlyRank-FastAPI-Task
+# FlyRank FastAPI Task
 
 A simple CRUD API for managing a to-do list, built with **Python** and **FastAPI**. This project was built as part of the FlyRank AI Internship (Backend AI Engineering track).
 
